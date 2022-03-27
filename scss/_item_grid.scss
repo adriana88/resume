@@ -1,0 +1,31 @@
+.items{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3);
+}
+
+.item{ //Text and image will be positioned absolute within the item
+    position: relative;
+    background: $main-color;
+    overflow:hidden;
+
+    //To create overlay when hover
+    &::after {
+        content:'';
+        position: absolute; 
+        display:block;
+        background: inherit; //it will inherit the color of its parent - $main-color
+        opacity: 0.9; //overlay will be a bit transparent
+        top:0;
+        left:0; 
+        width: 100%;
+        height:100%;
+        transform:scale(2) translateX(-75%) translateY(-75%) rotate(-28deg);
+        transition: transform 3s ease-in-out;
+
+    }
+
+    &:hover:after{
+        transform:scale(2) translateX(0) translateY(0) rotate(-28deg);
+    }
+}

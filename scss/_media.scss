@@ -1,0 +1,96 @@
+//Tablets and Smaller
+@media screen and (max-width: 768px){ 
+    #header-home {
+        height: 20rem; 
+
+        .header-content{
+            padding: 5rem;
+        }
+    }
+}
+
+
+//Smartphones
+@media screen and (max-width: 500px){
+    #main-nav{
+        flex-direction: column; //initials above the home, about and in the middle of the site
+        align-items: center;
+
+        li{
+            padding: 1rem;
+        }
+    }
+    #header{
+        &-home{
+            height: 10rem; //on smartphones the showcase with typing effect will take much less space
+            border-bottom: 3px solid $main-color;
+            background-position: 20% 30%; //so the image is positioned the same on all pages
+        }
+
+        &-inner{
+            height:500rem;
+        }
+    }
+
+    //to stack everything that on bigger screens has grid colums - so that there is only one thing per column
+    #home-a .specials,
+    #home-b .stats,
+    #home-c .process,
+    .items{
+        grid-template-columns: 1fr;
+    }   
+//Home
+    #home{
+        &-a{
+            .specials div{
+                border-bottom: 1px solid $dark-color;//UI/UX, interaction etc will now be stacked and have a bottom border
+                padding-bottom: 1rem;
+            }
+        }
+        &-b{
+            .stats div{
+                padding: 2rem 0 1rem 0; //making clients, awards etc a bit smaller
+            }
+        }
+    }
+
+    //About page
+    #about{
+        &-a{
+            .about-info{
+                grid-template-areas://so nym the image will be above the info, info above the award etc
+                'bioimage'
+                'bio'
+                'aw1'
+                'aw2'
+                'aw3';
+            }
+        }
+        //to get rid of logs on mobile
+        &-c{
+            display:none;
+        }
+    }
+
+
+
+    //Footer
+    #main-footer{
+        height:7rem;
+
+        .footer-content{
+            flex-direction: column; //copyright above the icons
+            padding: 1rem;
+            height:5rem;
+        }
+    }
+}
+
+//Landscape
+@media screen and (max-height: 580px){
+    #header-home{
+        .header.content{
+            padding-top:3rem;
+        }
+    }
+}
